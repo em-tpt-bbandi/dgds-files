@@ -1,0 +1,28 @@
+server:
+  http_listen_port: 9080
+  http_listen_address: 0.0.0.0
+positions:
+  filename: /tmp/positions.yaml
+clients:
+  - url: http://192.168.0.114:3100/loki/api/v1/push  # Adjust the URL to match your Loki setup
+scrape_configs:
+  - job_name: docker-logs
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: docker-logs
+          __path__: /var/lib/docker/containers/*/*.log
+
+
+
+
+
+
+
+
+
+
+
+
+
